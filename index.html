@@ -342,6 +342,145 @@ h1 .dim { color: var(--muted); }
   text-transform: uppercase;
 }
 
+/* ── GitHub Repositories section ── */
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .repos-grid { grid-template-columns: 1fr; }
+}
+
+.repo-card {
+  background: var(--surface);
+  padding: 1.6rem 1.8rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.repo-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s ease;
+}
+
+.repo-card:hover { background: #111820; }
+.repo-card:hover::after { transform: scaleY(1); }
+
+.repo-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.repo-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.repo-name svg {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.repo-arrow {
+  color: var(--muted);
+  font-size: 1rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.repo-card:hover .repo-arrow { color: var(--accent); transform: translate(3px,-3px); }
+
+.repo-desc {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.repo-lang {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.repo-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.repo-release {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--accent2);
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.repo-badge {
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(118,185,0,0.1);
+  border: 1px solid rgba(118,185,0,0.3);
+  color: #76b900;
+}
+
+.repo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.1rem;
+}
+
+.repo-tag {
+  font-size: 0.63rem;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
 /* Stats strip */
 .stats {
   display: grid;
@@ -532,6 +671,112 @@ footer {
 
 </div>
 
+  </section>
+
+  <!-- GitHub Repositories -->
+
+  <section class="section" style="padding-top:0; animation-delay:0.75s;">
+    <div class="section-header">
+      <span class="section-label">// github repositories</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="repos-grid">
+
+      <!-- networker-ppdm -->
+      <a href="https://github.com/Moodswing9/networker-ppdm" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            networker-ppdm
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Python REST API clients, unified <code style="color:var(--accent);font-size:0.75rem;">backupctl</code> CLI, and NVIDIA NIM RAG pipeline for Dell EMC NetWorker &amp; PPDM. Ask questions in plain English; generate automation scripts with Qwen2.5-Coder.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">Python</span>
+          <span class="repo-tag">REST API</span>
+          <span class="repo-tag">CLI</span>
+          <span class="repo-tag">RAG</span>
+          <span class="repo-tag">Kubernetes</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-release">v2.2.0</span>
+          <span class="repo-badge">NVIDIA NIM</span>
+        </div>
+      </a>
+
+      <!-- Headbanger -->
+      <a href="https://github.com/Moodswing9/Headbanger-s-Little-Repository" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            Headbanger
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">AI presentation generator — Claude or NVIDIA Palmyra-Creative-122B. Remix existing decks with DePlot chart extraction, Phi-4 multimodal analysis, 4 themes, <code style="color:var(--accent);font-size:0.75rem;">.pptx</code> &amp; <code style="color:var(--accent);font-size:0.75rem;">.html</code> output.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">Python</span>
+          <span class="repo-tag">Claude AI</span>
+          <span class="repo-tag">Palmyra</span>
+          <span class="repo-tag">DePlot</span>
+          <span class="repo-tag">Phi-4</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-release">v4.1.0</span>
+          <span class="repo-badge">NVIDIA NIM</span>
+        </div>
+      </a>
+
+      <!-- ppdm-es-troubleshooter -->
+      <a href="https://github.com/Moodswing9/ppdm-es-troubleshooter" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            ppdm-es-troubleshooter
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Browser-based PPDM Elasticsearch diagnostic dashboard. 10 modules, guided remediation, AI Diagnose tab — GLiNER redacts PII, Nemotron-70B delivers root-cause analysis. No backend required.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">JavaScript</span>
+          <span class="repo-tag">PPDM</span>
+          <span class="repo-tag">Elasticsearch</span>
+          <span class="repo-tag">GLiNER</span>
+          <span class="repo-tag">No Backend</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#f1e05a;"></span>JavaScript</span>
+          <span class="repo-release">v1.0.0</span>
+          <span class="repo-badge">NVIDIA NIM</span>
+        </div>
+      </a>
+
+      <!-- Index -->
+      <a href="https://github.com/Moodswing9/Index" target="_blank" class="repo-card">
+        <div class="repo-card-top">
+          <span class="repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
+            Index
+          </span>
+          <span class="repo-arrow">↗</span>
+        </div>
+        <p class="repo-desc">Developer portfolio — the page you're on right now. Hosted via GitHub Pages. Dark theme, grain overlay, animated blobs, JetBrains Mono + Syne, zero dependencies.</p>
+        <div class="repo-tags">
+          <span class="repo-tag">HTML</span>
+          <span class="repo-tag">CSS</span>
+          <span class="repo-tag">GitHub Pages</span>
+          <span class="repo-tag">Portfolio</span>
+        </div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="repo-lang-dot" style="background:#e34c26;"></span>HTML</span>
+        </div>
+      </a>
+
+    </div>
   </section>
 
   <!-- Stats -->
