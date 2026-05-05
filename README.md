@@ -6,7 +6,7 @@
 
 [![Portfolio](https://img.shields.io/badge/portfolio-moodswing9.github.io-6366f1?style=flat-square)](https://moodswing9.github.io)
 [![GitHub](https://img.shields.io/badge/github-Moodswing9-181717?style=flat-square&logo=github)](https://github.com/Moodswing9)
-[![Repos](https://img.shields.io/badge/public%20repos-4-22c55e?style=flat-square)](#projects)
+[![Repos](https://img.shields.io/badge/public%20repos-5-22c55e?style=flat-square)](#projects)
 
 </div>
 
@@ -19,6 +19,7 @@
 | [🔍 ppdm-es-troubleshooter](https://github.com/Moodswing9/ppdm-es-troubleshooter) | Interactive diagnostic dashboard for PPDM Elasticsearch access errors | HTML · CSS · JS |
 | [🛡️ networker-ppdm](https://github.com/Moodswing9/networker-ppdm) | Python clients, unified CLI, automation scripts & full Claude Code plugin (skill + 4 slash commands + agent) for NetWorker / PPDM / Data Domain | Python · REST API |
 | [🎤 claude-deck-generator](https://github.com/Moodswing9/claude-deck-generator) | AI-powered presentation generator — topic to polished `.pptx` or `.html` in seconds | Python · Claude AI |
+| [📺 ppdm-watch](https://github.com/Moodswing9/ppdm-watch) | Real-time terminal monitoring dashboard for PPDM — `nsrwatch` equivalent with AI alert summaries | Python · curses |
 | [🗂️ Moodswing9.github.io](https://github.com/Moodswing9/Moodswing9.github.io) | Developer portfolio — this page | HTML · CSS |
 
 ---

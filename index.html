@@ -829,12 +829,12 @@ footer {
 
   <div class="stats">
     <div class="stat">
-      <span class="stat-num">5</span>
+      <span class="stat-num" id="stat-repos">5</span>
       <span class="stat-label">Public Repos</span>
     </div>
     <div class="stat">
-      <span class="stat-num">1</span>
-      <span class="stat-label">GitHub Star</span>
+      <span class="stat-num" id="stat-stars">—</span>
+      <span class="stat-label">GitHub Stars</span>
     </div>
     <div class="stat">
       <span class="stat-num">↗</span>
@@ -850,5 +850,23 @@ footer {
   </footer>
 
 </div>
+<script>
+  (async () => {
+    try {
+      const [userRes, reposRes] = await Promise.all([
+        fetch('https://api.github.com/users/Moodswing9'),
+        fetch('https://api.github.com/users/Moodswing9/repos?per_page=100'),
+      ]);
+      if (!userRes.ok || !reposRes.ok) return;
+      const user  = await userRes.json();
+      const repos = await reposRes.json();
+      const stars = repos.reduce((s, r) => s + r.stargazers_count, 0);
+      const reposEl = document.getElementById('stat-repos');
+      const starsEl = document.getElementById('stat-stars');
+      if (reposEl) reposEl.textContent = user.public_repos;
+      if (starsEl) starsEl.textContent = stars;
+    } catch (_) { /* silently keep fallback values */ }
+  })();
+</script>
 </body>
 </html>
